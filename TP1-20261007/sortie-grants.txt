@@ -1,0 +1,76 @@
+﻿+------------------------------------------------------------------------------------------------------+
+| Grants for app_media@localhost                                                                       |
++------------------------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `app_media`@`localhost`                                                        |
+| GRANT SELECT (`actif`, `id`, `nom`, `prenom`) ON `mediatheque`.`adherent` TO `app_media`@`localhost` |
+| GRANT SELECT ON `mediatheque`.`categorie` TO `app_media`@`localhost`                                 |
+| GRANT SELECT, INSERT, UPDATE ON `mediatheque`.`emprunt` TO `app_media`@`localhost`                   |
+| GRANT SELECT, UPDATE (`disponible`) ON `mediatheque`.`exemplaire` TO `app_media`@`localhost`         |
+| GRANT SELECT ON `mediatheque`.`ouvrage` TO `app_media`@`localhost`                                   |
+| GRANT SELECT, INSERT, UPDATE ON `mediatheque`.`penalite` TO `app_media`@`localhost`                  |
+| GRANT SELECT, INSERT, UPDATE ON `mediatheque`.`reservation` TO `app_media`@`localhost`               |
+| GRANT `role_catalogue`@`%`,`role_prets`@`%` TO `app_media`@`localhost`                               |
++------------------------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------+
+| Grants for biblio_marie@localhost                                                               |
++-------------------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `biblio_marie`@`localhost`                                                |
+| GRANT SELECT, INSERT, UPDATE ON `mediatheque`.`adherent` TO `biblio_marie`@`localhost`          |
+| GRANT SELECT ON `mediatheque`.`categorie` TO `biblio_marie`@`localhost`                         |
+| GRANT SELECT, INSERT, UPDATE ON `mediatheque`.`emprunt` TO `biblio_marie`@`localhost`           |
+| GRANT SELECT, UPDATE (`disponible`) ON `mediatheque`.`exemplaire` TO `biblio_marie`@`localhost` |
+| GRANT SELECT ON `mediatheque`.`ouvrage` TO `biblio_marie`@`localhost`                           |
+| GRANT SELECT, INSERT, UPDATE ON `mediatheque`.`penalite` TO `biblio_marie`@`localhost`          |
+| GRANT SELECT, INSERT, UPDATE ON `mediatheque`.`reservation` TO `biblio_marie`@`localhost`       |
+| GRANT `role_adherents`@`%`,`role_catalogue`@`%`,`role_prets`@`%` TO `biblio_marie`@`localhost`  |
++-------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------+
+| Grants for stagiaire@localhost                                                                                                    |
++-----------------------------------------------------------------------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `stagiaire`@`localhost`                                                                                     |
+| GRANT SELECT (`actif`, `date_inscription`, `id`, `nom`, `prenom`, `ville`) ON `mediatheque`.`adherent` TO `stagiaire`@`localhost` |
+| GRANT SELECT ON `mediatheque`.`categorie` TO `stagiaire`@`localhost`                                                              |
+| GRANT SELECT ON `mediatheque`.`exemplaire` TO `stagiaire`@`localhost`                                                             |
+| GRANT SELECT ON `mediatheque`.`ouvrage` TO `stagiaire`@`localhost`                                                                |
+| GRANT `role_catalogue`@`%` TO `stagiaire`@`localhost`                                                                             |
++-----------------------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------+
+| Grants for analyste@localhost                                        |
++----------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `analyste`@`localhost`                         |
+| GRANT SELECT ON `mediatheque`.`categorie` TO `analyste`@`localhost`  |
+| GRANT SELECT ON `mediatheque`.`emprunt` TO `analyste`@`localhost`    |
+| GRANT SELECT ON `mediatheque`.`exemplaire` TO `analyste`@`localhost` |
+| GRANT SELECT ON `mediatheque`.`ouvrage` TO `analyste`@`localhost`    |
+| GRANT `role_catalogue`@`%` TO `analyste`@`localhost`                 |
++----------------------------------------------------------------------+
++-------------------------+------------+------------------+----------------+
+| grantee                 | table_name | column_name      | privilege_type |
++-------------------------+------------+------------------+----------------+
+| 'app_media'@'localhost' | adherent   | actif            | SELECT         |
+| 'app_media'@'localhost' | adherent   | id               | SELECT         |
+| 'app_media'@'localhost' | adherent   | nom              | SELECT         |
+| 'app_media'@'localhost' | adherent   | prenom           | SELECT         |
+| 'role_prets'@'%'        | exemplaire | disponible       | UPDATE         |
+| 'stagiaire'@'localhost' | adherent   | actif            | SELECT         |
+| 'stagiaire'@'localhost' | adherent   | date_inscription | SELECT         |
+| 'stagiaire'@'localhost' | adherent   | id               | SELECT         |
+| 'stagiaire'@'localhost' | adherent   | nom              | SELECT         |
+| 'stagiaire'@'localhost' | adherent   | prenom           | SELECT         |
+| 'stagiaire'@'localhost' | adherent   | ville            | SELECT         |
++-------------------------+------------+------------------+----------------+
++-----------------------------------------------------------------------+
+| Grants for analyste@localhost                                         |
++-----------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `analyste`@`localhost`                          |
+| GRANT SELECT ON `mediatheque`.`emprunt` TO `analyste`@`localhost`     |
+| GRANT SELECT ON `mediatheque`.`reservation` TO `analyste`@`localhost` |
+| GRANT `role_catalogue`@`%` TO `analyste`@`localhost`                  |
++-----------------------------------------------------------------------+
++-------------------------------------------------------------------+
+| Grants for analyste@localhost                                     |
++-------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO `analyste`@`localhost`                      |
+| GRANT SELECT ON `mediatheque`.`emprunt` TO `analyste`@`localhost` |
+| GRANT `role_catalogue`@`%` TO `analyste`@`localhost`              |
++-------------------------------------------------------------------+
